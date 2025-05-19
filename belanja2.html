@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ELECTRONIC STORE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+	<style>
+		body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+
+		.bg-loader { position: fixed; width: 100%; height: 100%; background: #fff; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+		.loader { width: 50px; height: 50px; border: 5px solid #ccc; border-top-color: #000; border-radius: 50%; animation: spin 1s linear infinite; }
+		@keyframes spin { 100% { transform: rotate(360deg); } }
+
+		.container { width: 90%; margin: auto; overflow: hidden; }
+
+		.medsos ul { list-style: none; padding: 10px 0; display: flex; gap: 10px; }
+		.medsos ul li a { color: #fff; }
+		.medsos { background: #333; }
+		
+		header { background: #f4f4f4; padding: 20px 0; }
+		header h1 a { text-decoration: none; color: #000; }
+		header ul { list-style: none; display: flex; gap: 15px; }
+		header ul li a { text-decoration: none; padding: 10px; color: #000; }
+		header ul .active a { font-weight: bold; }
+
+		.spanduk { width: 100%; text-align: center; background: #f4f4f4; padding: 10px 0; }
+		.spanduk img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
+		.label { padding: 15px 0; background: #eee; }
+		.label p { margin: 0; }
+
+		.gambargerak { padding: 20px 0; }
+		.kategori .box { display: flex; flex-wrap: wrap; gap: 20px; }
+		.kategori .col-7 { width: calc(100% / 3 - 20px); text-align: center; }
+		.kategori .icon { font-size: 30px; margin-bottom: 10px; }
+
+		.rekomendasi { padding: 30px 0 10px; background: #f9f9f9; text-align: center; }
+
+		.gambar { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+		.foto { width: 200px; text-align: center; border: 1px solid #ccc; padding: 10px; border-radius: 10px; background: #fff; }
+		.foto img { width: 100%; height: auto; border-radius: 6px; }
+		.foto a { display: inline-block; margin-top: 10px; padding: 5px 10px; background: #333; color: #fff; text-decoration: none; border-radius: 4px; }
+
+		.service .box { display: flex; justify-content: space-around; padding: 30px 0; background: #f4f4f4; }
+		.service .col-4 { text-align: center; }
+		.service .icon { font-size: 30px; margin-bottom: 10px; }
+
+		footer { background: #333; color: #fff; text-align: center; padding: 15px 0; margin-top: 40px; }
+	</style>
+</head>
+<body>
+
+	<!-- loader -->
+	<div class="bg-loader">
+		<div class="loader"></div>
+	</div>
+
+	<!-- header -->
+	<div class="medsos">
+		<div class="container">
+			<ul>
+				<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<header>
+		<div class="container">
+			<h1><a href="index.html">TOKO LAPTOP</a></h1>
+			<ul>
+				<li><a href="index2.html">MENU UTAMA</a></li>
+				<li class="active"><a href="index2.html">PRODUK</a></li>
+				<li><a href="keranjang4.html"><i class="fas fa-shopping-basket"></i></a></li>
+				<li><a href="sign2.html">DAFTAR</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- spanduk -->
+	<div class="spanduk">
+		<img src="ppp.jpg" alt="Promo Spesial!" style="width: 95%; height: 400px; object-fit: cover;">
+	</div>
+
+	<!-- label -->
+	<section class="label">
+		<div class="container">
+			<p>NIKMATI FITUR BARU DAN KENYAMANANNYA!</p>
+		</div>
+	</section>
+
+	<!-- gambar gerak -->
+	<selection class="gambargerak">
+		<div align="center">
+			<marquee width ="1200">
+				<img src="laptoop.jpg" height="100">
+				<img src="laptoop3.jpeg" height="100">
+				<img src="images.jpg" height="100">
+                <img src="laptoop.jpg" height="100">
+				<img src="laptoop3.jpeg" height="100">
+				<img src="images.jpg" height="100">
+                <img src="laptoop.jpg" height="100">
+				<img src="laptoop3.jpeg" height="100">
+				<img src="images.jpg" height="100">
+                <img src="laptoop.jpg" height="100">
+				<img src="laptoop3.jpeg" height="100">
+				<img src="images.jpg" height="100">
+                <img src="laptoop.jpg" height="100">
+				<img src="laptoop3.jpeg" height="100">
+				<img src="images.jpg" height="100">
+                <img src="laptoop.jpg" height="100">
+				<img src="laptoop3.jpeg" height="100">
+				<img src="images.jpg" height="100">
+				<!-- Tambahkan gambar lainnya sesuai kebutuhan -->
+			</marquee>
+		</div>
+	</selection>
+
+	<!-- kategori -->
+	<section class="kategori">
+		<div class="container">
+			<h3>KATEGORI</h3>
+			<div class="box">
+				<div class="col-7"><div class="icon"><i class="fas fa-mobile-alt"></i></div><h4>ELECTRONIK</h4></div>
+
+				<div class="col-7"><div class="icon"><i class="fas fa-gamepad"></i></div><h4>GAME</h4></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- rekomendasi -->
+	<div class="rekomendasi">
+		<h3>REKOMENDASI</h3>
+	</div>
+
+	<!-- produk -->
+	<div class='gambar'>
+		<div class='foto'><img src='acer aspire 5.jpg'><h2>ACER ASPIRE 5</h2><p>Rp.8.485.800</p><a href=''>Pesan Sekarang</a></div>
+		<div class='foto'><img src='acer Predator21X_1.jpg'><h2>ACER PREDATOR21X</h2><p>Rp.124.999.000,00</p><a href=''>Pesan Sekarang</a></div>
+		<div class='foto'><img src='asus vivobook14.jpg'><h2>ASUS VIVO BOOK 14</h2><p>Rp.7.597.000</p><a href=''>Pesan Sekarang</a></div>
+		<div class='foto'><img src='axioo gaming.jpg'><h2>AXIOO GAMING</h2><p>Rp.11.099.000</p><a href=''>Pesan Sekarang</a></div>
+        <div class='foto'><img src='axioocore13 gen12.jpg'><h2>AXIOO CORE 13 GEN 12</h2><p>Rp.5.399.000</p><a href=''>Pesan Sekarang</a></div>
+        <div class='foto'><img src='dellxps139340.jpg'><h2>DELL XPS139340</h2><p>Rp.22.599.000</p><a href=''>Pesan Sekarang</a></div>
+        <div class='foto'><img src='iphonelaptop.jpg'><h2>LAPTOP MACBOOK Air</h2><p>Rp.11.999.000</p><a href=''>Pesan Sekarang</a></div>
+        <div class='foto'><img src='lenovo-ipad slim3.jpg'><h2>LENOVO-IPAD SLIM3</h2><p>Rp.8.199.000</p><a href=''>Pesan Sekarang</a></div>
+        <div class='foto'><img src='laptop hpstream14.jpg'><h2>LAPTOP HP STREAM</h2><p>Rp.11.979.000</p><a href=''>Pesan Sekarang</a></div>
+        <div class='foto'><img src='MSI Titan Gt77HX 13VI.jpg'><h2>MSI TITAN Gt77HX</h2><p>Rp.99.999.999</p><a href=''>Pesan Sekarang</a></div>
+		<!-- Tambah produk lain sesuai kebutuhan -->
+	</div>
+
+	<!-- service -->
+	<section class="service">
+		<div class="container">
+			<h3>SERVICE</h3>
+			<div class="box">
+				<div class="col-4"><div class="icon"><i class="fas fa-mobile"></i></div><h4>APLIKASI MOBILE</h4></div>
+				<div class="col-4"><div class="icon"><i class="fas fa-globe"></i></div><h4>WEB DEVELOPER</h4></div>
+				<div class="col-4"><div class="icon"><i class="fas fa-edit"></i></div><h4>DESIGN</h4></div>
+				<div class="col-4"><div class="icon"><i class="fas fa-chart-bar"></i></div><h4>PEMASARAN DIGITAL</h4></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- footer -->
+	<footer>
+		<div class="container">
+			<small>Copyright &copy; 2020 - Toko Laptop. All Right Reserved.</small>
+		</div>
+	</footer>
+
+	<!-- loader hide -->
+	<script>
+		$(document).ready(function() {
+			$(".bg-loader").hide();
+		});
+	</script>
+
+</body>
+</html>

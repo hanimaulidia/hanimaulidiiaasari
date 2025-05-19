@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout & Keranjang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #343a40;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    nav h1 a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover,
+    nav ul li.active a {
+      color: #ffc107;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 800px;
+      margin: auto;
+      padding-top: 40px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      color: #333;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .product-item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-item h2 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+
+    .product-item p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .product-item input {
+      width: 50px;
+      padding: 5px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .product-item button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .product-item button:hover {
+      background-color: #0056b3;
+    }
+
+    .checkout-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .checkout-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      background-color: #218838;
+    }
+
+    .invoice {
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .invoice h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .invoice .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .invoice .item:last-child {
+      border-bottom: none;
+    }
+
+    .invoice .total {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+ <header>
+		<div class="container">
+			<h1><a href="index.html">TOKO LAPTOP</a></h1>
+			<ul>
+				<li><a href="index2.html">MENU UTAMA</a></li>
+				<li class="active"><a href="index2.html">PRODUK</a></li>
+				<li><a href="keranjang4.html"><i class="fas fa-shopping-basket"></i></a></li>
+				<li><a href="sign2.html">DAFTAR</a></li>
+			</ul>
+		</div>
+	</header>
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <header>
+      <h1>Produk Kami</h1>
+    </header>
+
+    <div class="product-list" id="productList">
+      <!-- Produk di-generate oleh JavaScript -->
+    </div>
+
+    <div class="checkout-section">
+      <button class="checkout-btn" onclick="showInvoice()">Lihat Keranjang & Pesan</button>
+    </div>
+
+    <div class="invoice" id="invoice" style="display: none;">
+      <h3>Nota Pembelian</h3>
+      <div id="invoiceItems"></div>
+      <div class="total" id="totalPrice"></div>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { id: 1, name: "ACER ASPIRE 5", price: 8.485800, image: "acer aspire 5.jpg" },
+      { id: 2, name: "ACER PREDATOR21X", price: 124.99900000, image: "acer Predator21X_1.jpg" },
+      { id: 3, name: "ASUS VIVO BOOK 14", price: 7.597000, image: "asus vivobook14.jpg" },
+      { id: 4, name: "AXIOO GAMING", price: 11.099000, image: "axioo gaming.jpg" },
+      { id: 5, name: "AXIOO CORE 13 GEN 12", price: 5.399000, image: "axioocore13 gen12.jpg" },
+      { id: 6, name: "DELL XPS139340", price: 22.599000, image: "dellxps139340.jpg" },
+      { id: 7, name: "LAPTOP HP STREAM 14", price: 11.979000, image: "laptop hpstream14.jpg" },
+      { id: 8, name: "LENOVO-IPAD SLIM3", price: 8.199000, image: "lenovo-ipad slim3.jpg" },
+      { id: 9, name: "MSI TITAN Gt77HX", price: 99.999999, image: "MSI Titan Gt77HX 13VI.jpg" },
+      { id: 10, name: "LAPTOP MACBOOK", price: 11.999000, image: "iphonelaptop.jpg" },
+    ];
+
+    const cart = {};
+
+    function renderProducts() {
+      const container = document.getElementById("productList");
+      products.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "product-item";
+        item.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <h2>${p.name}</h2>
+          <p>Rp ${p.price.toLocaleString()}</p>
+          <input type="number" id="qty_${p.id}" min="1" value="1" />
+          <button onclick="addToCart(${p.id})">+ Keranjang</button>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function addToCart(productId) {
+      const qty = parseInt(document.getElementById(`qty_${productId}`).value);
+      if (qty > 0) {
+        cart[productId] = (cart[productId] || 0) + qty;
+        alert("Ditambahkan ke keranjang!");
+      }
+    }
+
+    function showInvoice() {
+      const invoiceDiv = document.getElementById("invoice");
+      const invoiceItems = document.getElementById("invoiceItems");
+      const totalPrice = document.getElementById("totalPrice");
+
+      let total = 0;
+      let html = "";
+
+      for (const id in cart) {
+        const product = products.find(p => p.id == id);
+        const qty = cart[id];
+        const subtotal = product.price * qty;
+        total += subtotal;
+        html += `<div class="item"><span>${product.name} x ${qty}</span><span>Rp ${subtotal.toLocaleString()}</span></div>`;
+      }
+
+      if (total > 0) {
+        invoiceItems.innerHTML = html;
+        totalPrice.innerHTML = `Total Bayar: Rp ${total.toLocaleString()}`;
+        invoiceDiv.style.display = "block";
+      } else {
+        alert("Keranjang kosong.");
+      }
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
